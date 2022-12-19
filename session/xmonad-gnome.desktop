@@ -1,10 +1,10 @@
 [Desktop Entry]
 Type=Application
-Name=i3-gnome
+Name=xmonad-gnome
 NoDisplay=true
-Comment=improved dynamic tiling window manager
-Exec=i3-gnome
-X-GNOME-WMName=i3-gnome
+Comment=the tiling wm
+Exec=xmonad-gnome
+X-GNOME-WMName=xmonad-gnome
 X-GNOME-Autostart-Phase=WindowManager
 X-GNOME-Provides=windowmanager
 X-GNOME-Autostart-Notify=false
