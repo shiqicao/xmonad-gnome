@@ -1,20 +1,30 @@
 #!/bin/sh
 
 # Register with gnome-session so that it does not kill the whole session thinking it is dead.
-test -n "$DESKTOP_AUTOSTART_ID" && {
-    dbus-send --print-reply --session --dest=org.gnome.SessionManager \
-              "/org/gnome/SessionManager" org.gnome.SessionManager.RegisterClient \
-              "string:xmonad-gnome" "string:$DESKTOP_AUTOSTART_ID"
-}
+#test -n "$DESKTOP_AUTOSTART_ID" && {
+#    dbus-send --print-reply --session --dest=org.gnome.SessionManager \
+#              "/org/gnome/SessionManager" org.gnome.SessionManager.RegisterClient \
+#              "string:xmonad-gnome" "string:$DESKTOP_AUTOSTART_ID"
+#}
+#
+## Support for merging .Xresources
+#test -e $HOME/.Xresources && {
+#    xrdb -merge $HOME/.Xresources
+#}
+#
+#xmonad
+#
+## Logout process.
+#test -n "$DESKTOP_AUTOSTART_ID" && {
+#	dbus-send --print-reply --session --dest=org.gnome.SessionManager "/org/gnome/SessionManager" org.gnome.SessionManager.Logout "uint32:1"
+#}
 
-# Support for merging .Xresources
-test -e $HOME/.Xresources && {
-    xrdb -merge $HOME/.Xresources
-}
+if [ -n "$DESKTOP_AUTOSTART_ID" ]; then
+    dbus-send --print-reply --session --dest=org.gnome.SessionManager "/org/gnome/SessionManager" org.gnome.SessionManager.RegisterClient "string:xmonad-gnome" "string:$DESKTOP_AUTOSTART_ID"
+fi
 
 xmonad
 
-# Logout process.
-test -n "$DESKTOP_AUTOSTART_ID" && {
-	dbus-send --print-reply --session --dest=org.gnome.SessionManager "/org/gnome/SessionManager" org.gnome.SessionManager.Logout "uint32:1"
-}
+if [ -n "$DESKTOP_AUTOSTART_ID" ]; then
+    dbus-send --print-reply --session --dest=org.gnome.SessionManager "/org/gnome/SessionManager" org.gnome.SessionManager.Logout "uint32:1"
+fi
