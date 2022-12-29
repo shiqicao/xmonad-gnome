@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=xmonad-gnome
-NoDisplay=true
+#NoDisplay=true
 Comment=the tiling wm
 Exec=xmonad-gnome
 X-GNOME-WMName=xmonad-gnome
