@@ -1,10 +1,8 @@
 [Desktop Entry]
+Name=XMONAD + GNOME
+Comment=This session logs you into xmonad with GNOME session integration
+Exec=gnome-session-xmonad
+TryExec=xmonad-gnome
 Type=Application
-Name=xmonad-gnome
-#NoDisplay=true
-Comment=the tiling wm
-Exec=xmonad-gnome
-X-GNOME-WMName=xmonad-gnome
-X-GNOME-Autostart-Phase=WindowManager
-X-GNOME-Provides=windowmanager
-X-GNOME-Autostart-Notify=false
+DesktopNames=GNOME-Flashback;GNOME
+#X-Ubuntu-Gettext-Domain=gnome-session-3.0
